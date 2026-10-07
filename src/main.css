@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
+
+:root {
+  /* Font */
+  --font-main: "Source Sans 3", Arial, Helvetica, sans-serif;
+
+  /* Colors */
+  --color-blue: #0071bc; /* links / sub-nav */
+  --color-blue-dark: #1a4480; /* sign in / back to top */
+  --color-blue-darker: #112e51;
+  --color-teal: #00799e; /* find it fast */
+  --color-teal-search: #205493; /* search button */
+  --color-blue-subscribe: #005ea2;
+
+  --color-dark: #2e2e2e; /* header bg */
+  --color-footer: #1b1b1b; /* dark footer */
+  --color-gray-light: #f0f0f0; /* banner + footer links bg */
+  --color-gray-nav: #dcdee0; /* sub-nav bg */
+  --color-gray-page: #f5f5f5; /* page bg */
+  --color-border: #a9aeb1; /* input border */
+  --color-green: #4c8a3f; /* divider line */
+
+  --color-text: #1b1b1b;
+  --color-white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}

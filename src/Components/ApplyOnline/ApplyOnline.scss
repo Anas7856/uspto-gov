@@ -1,0 +1,68 @@
+.apply-online {
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 26px 0 12px;
+    color: var(--color-text);
+  }
+  p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  a {
+    color: var(--color-blue);
+    text-decoration: underline;
+  }
+
+  .ao-head {
+    display: flex;
+    gap: 28px;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &__text {
+      flex: 1;
+    }
+    &__img {
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+  }
+
+  .ao-list {
+    padding-left: 20px;
+    margin-bottom: 8px;
+    li {
+      list-style: disc;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+  }
+
+  .ao-links {
+    li {
+      margin-bottom: 8px;
+    }
+    a {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .ao-head {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ao-head__img {
+      width: 100%;
+      max-width: 260px;
+    }
+  }
+}

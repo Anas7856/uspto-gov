@@ -1,0 +1,32 @@
+.roa {
+  h1 {
+    font-size: 29px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 26px 0 12px;
+  }
+  p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  a {
+    color: var(--color-blue);
+    text-decoration: underline;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 14px;
+  }
+  ul li {
+    list-style: disc;
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+}

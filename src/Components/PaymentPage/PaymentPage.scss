@@ -1,0 +1,213 @@
+.pay-page {
+  padding: 40px 16px 56px;
+  background: #f3f5f9;
+
+  &__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .muted {
+    margin: 0 0 24px;
+    font-size: 15px;
+    color: #5b6577;
+  }
+
+  .pay-form,
+  .receipt,
+  .pay-empty {
+    background: #fff;
+    border: 1px solid #e1e5ee;
+    border-radius: 8px;
+    box-shadow: 0 8px 28px rgba(27, 43, 75, 0.08);
+  }
+
+  .pay-form {
+    padding: 36px 36px 40px;
+    border-top: 5px solid #1b2b4b;
+
+    h2 {
+      margin: 0 0 6px;
+      font-size: 28px;
+      color: #1b2b4b;
+    }
+
+    .field {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        margin-bottom: 7px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #2b3447;
+      }
+
+      input {
+        width: 100%;
+        padding: 13px 14px;
+        border: 1px solid #c3cada;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+
+        &:focus {
+          outline: none;
+          border-color: #1a4480;
+          box-shadow: 0 0 0 3px rgba(26, 68, 128, 0.18);
+        }
+      }
+    }
+
+    .pay-btn {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      background: #1b2b4b;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover {
+        background: #0f1a30;
+      }
+    }
+  }
+
+  /* ===== Compact receipt ===== */
+  .receipt {
+    padding: 16px 20px 14px;
+
+    &__logo {
+      display: block;
+      width: 110px;
+      max-width: 100%;
+      margin: 0 auto 2px;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      text-align: center;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1b2b4b;
+    }
+
+    &__meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 6px 0;
+      border-top: 1px dashed #b9c1d1;
+      border-bottom: 1px dashed #b9c1d1;
+      font-size: 11px;
+      color: #5b6577;
+    }
+
+    &__rows {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+      margin: 10px 0;
+
+      .row {
+        display: block;
+        padding: 0;
+        border: none;
+        min-width: 0;
+      }
+
+      dt {
+        font-size: 10px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #7a8497;
+      }
+
+      dd {
+        margin: 1px 0 0;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: left;
+        color: #1d2433;
+        word-break: break-word;
+      }
+    }
+
+    &__total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0 4px;
+      border-top: 2px solid #1b2b4b;
+      font-size: 14px;
+      color: #1b2b4b;
+
+      strong {
+        font-size: 18px;
+      }
+    }
+
+    .barcode {
+      margin-top: 4px;
+      text-align: center;
+
+      svg {
+        height: 34px;
+      }
+
+      span {
+        display: block;
+        margin-top: 3px;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        color: #444;
+      }
+    }
+  }
+
+  .pay-empty {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+
+    h2 {
+      margin: 0 0 8px;
+      color: #1b2b4b;
+    }
+
+    p {
+      margin: 0;
+      color: #5b6577;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .pay-page {
+    padding: 24px 12px 40px;
+
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Mobile: pehle receipt, phir payment details */
+    .receipt {
+      order: -1;
+    }
+
+    .pay-form {
+      padding: 24px 20px 26px;
+    }
+  }
+}

@@ -1,0 +1,252 @@
+.footer {
+  width: 100%;
+  font-size: 15px;
+
+  a {
+    color: var(--color-blue);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__feedback {
+    background-color: var(--color-white);
+    border-top: 1px solid #e0e0e0;
+    padding: 22px 0;
+  }
+
+  &__feedback-inner {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .helpful {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .icon-btn {
+      background: none;
+      border: none;
+      color: var(--color-blue);
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+
+  .page-actions {
+    text-align: right;
+
+    .actions-row {
+      display: flex;
+      gap: 24px;
+      justify-content: flex-end;
+      margin-bottom: 6px;
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+  }
+
+  &__links {
+    background-color: var(--color-gray-light);
+    padding: 34px 0;
+  }
+
+  &__links-inner {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .links-col {
+    flex: 1;
+    max-width: 520px;
+
+    .top-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      span {
+        color: #555;
+      }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #c9c9c9;
+      margin: 14px 0 18px;
+      max-width: 440px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
+      li {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  .subscribe-col {
+    flex: 1;
+    max-width: 440px;
+
+    h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+
+    .subscribe-box {
+      display: flex;
+      gap: 10px;
+
+      input {
+        flex: 1;
+        padding: 10px 12px;
+        border: 1px solid var(--color-border);
+        border-radius: 3px;
+        font-size: 15px;
+        font-family: var(--font-main);
+        outline: none;
+        min-width: 0;
+      }
+
+      button {
+        background-color: var(--color-blue-subscribe);
+        color: var(--color-white);
+        border: none;
+        padding: 0 20px;
+        border-radius: 3px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: var(--font-main);
+        white-space: nowrap;
+        &:hover {
+          opacity: 0.93;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    background-color: var(--color-footer);
+    padding: 24px 0;
+  }
+
+  &__bottom-inner {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+
+    &__img {
+      height: 40px; /* zaroorat ke hisab se adjust karna */
+      width: auto;
+      display: block;
+    }
+  }
+
+  .social {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--color-white);
+    font-weight: 700;
+
+    a {
+      color: var(--color-white);
+      font-size: 18px;
+      display: flex;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  /* ================= FIXED BACK TO TOP ================= */
+  .back-top {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    z-index: 999;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-blue-dark);
+    color: var(--color-white);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px; /* right kinare se chipka hua */
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    &:hover {
+      background-color: var(--color-blue-darker);
+    }
+  }
+
+  /* ================= MOBILE ================= */
+  @media (max-width: 900px) {
+    &__feedback-inner,
+    &__links-inner,
+    &__bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 0 18px;
+    }
+
+    .page-actions {
+      text-align: left;
+      .actions-row {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+    }
+
+    .links-col,
+    .subscribe-col {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .links-grid {
+      gap: 0 20px;
+    }
+
+    .back-top {
+      bottom: 20px;
+      padding: 9px 13px;
+      font-size: 13px;
+    }
+  }
+}

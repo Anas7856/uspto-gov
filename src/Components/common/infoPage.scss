@@ -1,0 +1,89 @@
+.info-page {
+  background-color: var(--color-white);
+
+  .ip-hero {
+    background-color: var(--color-blue-darker);
+    color: var(--color-white);
+
+    &__inner {
+      max-width: 1230px;
+      margin: 0 auto;
+      padding: 34px 30px 38px;
+
+      h1 { font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+      p { font-size: 15px; line-height: 1.7; margin-bottom: 12px; max-width: 900px; }
+    }
+  }
+
+  .ip-columns {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 40px 30px 54px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 34px;
+
+    .ip-col h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; color: var(--color-text); }
+    .ip-col ul li { margin-bottom: 9px; }
+    .ip-col ul li a {
+      color: var(--color-blue);
+      font-size: 14px;
+      &::before { content: "\203A  "; }
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  .ip-body {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 30px 60px;
+  }
+
+  .ip-main {
+    .ip-section { margin-bottom: 26px; }
+    h2 { font-size: 21px; font-weight: 700; margin-bottom: 10px; }
+    p { font-size: 15px; line-height: 1.8; margin-bottom: 12px; }
+  }
+
+  .ip-related {
+    margin-top: 20px;
+    padding-top: 26px;
+    border-top: 1px solid #e0e0e0;
+
+    h2 { font-size: 21px; font-weight: 700; margin-bottom: 18px; }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+  }
+
+  .ip-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #e0e0e0;
+    border-top: 4px solid var(--color-blue);
+    border-radius: 4px;
+    padding: 18px;
+    text-decoration: none;
+    transition: box-shadow 0.15s;
+
+    &:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+
+    &__label { color: var(--color-blue); font-weight: 700; font-size: 15px; line-height: 1.4; }
+    &__arrow { color: var(--color-text); font-size: 13px; font-weight: 600; }
+  }
+
+  @media (max-width: 900px) {
+    .ip-hero__inner { padding: 26px 18px 30px; }
+    .ip-columns { grid-template-columns: 1fr 1fr; gap: 24px; padding: 28px 18px 40px; }
+    .ip-body { padding: 26px 18px 48px; }
+    .ip-related__grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .ip-columns { grid-template-columns: 1fr; }
+  }
+}

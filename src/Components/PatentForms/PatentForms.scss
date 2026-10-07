@@ -1,0 +1,85 @@
+.patent-forms {
+  h1 { font-size: 29px; font-weight: 700; margin-bottom: 8px; }
+  h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #444; }
+  p { font-size: 15px; line-height: 1.65; margin-bottom: 14px; }
+  a { color: var(--color-blue); text-decoration: underline; }
+
+  .pf-alert {
+    background-color: #fef9e7;
+    border-left: 6px solid #e6a817;
+    padding: 14px 16px;
+    margin-bottom: 22px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+
+    p { font-size: 14px; margin: 0; }
+    button {
+      background: none; border: none; color: #555;
+      cursor: pointer; font-size: 15px; flex-shrink: 0;
+      &:hover { color: #000; }
+    }
+  }
+
+  .pf-notes {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 26px;
+    font-size: 14px;
+
+    ul { padding-left: 20px; margin-top: 8px; }
+    li { list-style: disc; margin-bottom: 7px; line-height: 1.55; }
+  }
+
+  .pf-cat {
+    margin-bottom: 26px;
+
+    h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--color-text);
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--color-blue);
+      margin-bottom: 4px;
+    }
+  }
+
+  .pf-table { width: 100%; }
+
+  .pf-row {
+    display: grid;
+    grid-template-columns: 1fr 90px 150px;
+    gap: 14px;
+    padding: 9px 6px;
+    border-bottom: 1px solid #ececec;
+    font-size: 14px;
+    align-items: start;
+
+    &--head {
+      font-weight: 700;
+      color: #555;
+      border-bottom: 1px solid #ccc;
+      a { pointer-events: none; }
+    }
+
+    span:nth-child(2),
+    span:nth-child(3) { color: #555; }
+  }
+
+  .pf-important {
+    margin-top: 34px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+
+    h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+  }
+
+  @media (max-width: 700px) {
+    .pf-row {
+      grid-template-columns: 1fr 70px;
+      span:nth-child(3) { grid-column: 1 / -1; color: #888; font-size: 13px; }
+    }
+    .pf-row--head span:nth-child(3) { display: none; }
+  }
+}

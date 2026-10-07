@@ -1,0 +1,59 @@
+.file-petition {
+  background-color: var(--color-white);
+
+  .fp-intro {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 30px 10px;
+
+    h1 { font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    p { font-size: 15px; line-height: 1.7; margin-bottom: 22px; }
+  }
+
+  .fp-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .fp-highlight {
+    display: block;
+    border: 1px solid #e0e0e0;
+    border-top: 4px solid var(--color-blue);
+    border-radius: 4px;
+    padding: 16px 18px;
+    &:hover { box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); }
+
+    h3 { color: var(--color-blue); font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    p { font-size: 13px; color: var(--color-text); line-height: 1.5; margin: 0; }
+  }
+
+  .fp-cols {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 34px 30px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 36px;
+  }
+
+  .fp-col {
+    h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    &__sub { font-size: 14px; color: #666; margin-bottom: 14px; }
+
+    ul li { margin-bottom: 9px; }
+    ul li a {
+      color: var(--color-blue);
+      font-size: 14px;
+      text-decoration: none;
+      &::before { content: "\203A  "; }
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .fp-intro { padding: 26px 18px 10px; }
+    .fp-highlights { grid-template-columns: 1fr; gap: 14px; }
+    .fp-cols { grid-template-columns: 1fr; gap: 28px; padding: 26px 18px 48px; }
+  }
+}

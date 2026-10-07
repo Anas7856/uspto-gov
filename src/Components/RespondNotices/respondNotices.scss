@@ -1,0 +1,20 @@
+.respond-notices {
+  h1 { font-size: 29px; font-weight: 700; margin-bottom: 16px; }
+  h2 { font-size: 21px; font-weight: 700; margin: 26px 0 12px; }
+  p { font-size: 15px; line-height: 1.7; margin-bottom: 14px; }
+  a { color: var(--color-blue); }
+
+  .rn-guide {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #e0e0e0;
+
+    &__item {
+      padding: 13px 8px;
+      border-bottom: 1px solid #e0e0e0;
+      font-weight: 600;
+      text-decoration: none;
+      &:hover { text-decoration: underline; background-color: #f6f9fc; }
+    }
+  }
+}

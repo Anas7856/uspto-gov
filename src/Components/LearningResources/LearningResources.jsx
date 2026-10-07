@@ -1,0 +1,12 @@
+import React from "react";
+import InfoPage from "../common/InfoPage";
+
+const LearningResources = () => (
+  <InfoPage
+    title={"Learning and Resources"}
+    intro={"Browse tools, training, publications, and resources for inventors, entrepreneurs, practitioners, and the public."}
+    columns={[{"heading": "Resources by audience", "links": [{"label": "Attorneys, agents & paralegals", "to": "/learning-resources/attorneys"}, {"label": "Inventors & entrepreneurs", "to": "/learning-resources/inventors"}, {"label": "Kids & educators", "to": "/learning-resources/kids-educators"}, {"label": "Media", "to": "/learning-resources/media"}, {"label": "Researchers & librarians", "to": "/learning-resources/researchers"}, {"label": "Patent & trademark practitioners", "to": "/learning-resources/practitioners"}, {"label": "IP awards and recognition", "to": "/learning-resources/ip-awards"}]}, {"heading": "Getting started", "links": [{"label": "Create an account", "to": "/learning-resources/create-account"}, {"label": "General FAQs", "to": "/learning-resources/faqs"}, {"label": "IP Identifier", "to": "/learning-resources/ip-identifier"}, {"label": "Glossary of terms", "to": "/learning-resources/glossary"}, {"label": "Video Learning Center", "to": "/learning-resources/video-center"}, {"label": "Access free services", "to": "/learning-resources/free-services"}, {"label": "Inspiring stories of innovation", "to": "/learning-resources/stories"}]}, {"heading": "Publications & data", "links": [{"label": "Open data portal", "to": "/learning-resources/open-data"}, {"label": "Federal Register Notices", "to": "/learning-resources/federal-register"}, {"label": "Official Gazette", "to": "/learning-resources/official-gazette"}, {"label": "XML resources", "to": "/learning-resources/xml-resources"}, {"label": "Classification", "to": "/learning-resources/classification"}, {"label": "Guidance documents", "to": "/learning-resources/guidance"}, {"label": "Statistics and dashboards", "to": "/learning-resources/statistics"}]}, {"heading": "Tools & links", "links": [{"label": "Fees and payment", "to": "/learning-resources/fees-payment"}, {"label": "Training and events", "to": "/learning-resources/training-events"}, {"label": "More tools & links", "to": "/learning-resources/more-tools"}, {"label": "System availability", "to": "/learning-resources/system-availability"}, {"label": "Operational status", "to": "/learning-resources/operational-status"}]}]}
+  />
+);
+
+export default LearningResources;
