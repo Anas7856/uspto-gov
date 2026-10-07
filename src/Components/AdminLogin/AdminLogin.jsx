@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./adminLogin.scss";
+import "./AdminLogin.scss";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
