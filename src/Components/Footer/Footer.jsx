@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import logoDesktop from "../../assets/desktop-logo.png";
-import "./footer.scss";
+import "./Footer.scss";
 
 const MY_USPTO = "https://my.uspto.gov/";
 
