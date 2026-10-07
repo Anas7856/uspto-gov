@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import "./adminDashboard.scss";
+import "./AdminDashboard.scss";
 
 const emptyForm = {
   serial: "",
