@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import receiptLogo from "../../assets/main.avif";
-import "./paymentPage.scss";
+import "./PaymentPage.scss";
 
 // Fake barcode: text se hamesha same bars banate hain
 const makeBars = (text) => {
