@@ -5,20 +5,30 @@ import Footer from "../Footer/Footer";
 import "./AdminDashboard.scss";
 
 const emptyForm = {
+  serial: "",
+  mark: "",
   owner: "",
+  email: "",
+  attorney: "",
   service: "",
   charges: "",
+  descriptor: "",
 };
 
 const fields = [
+  { name: "serial", label: "Serial No", type: "text" },
+  { name: "mark", label: "Mark", type: "text" },
   { name: "owner", label: "Name", type: "text" },
+  { name: "email", label: "Email", type: "email" },
+  { name: "attorney", label: "Attorney", type: "text" },
   { name: "service", label: "Service", type: "text" },
   { name: "charges", label: "Charges", type: "text" },
+  { name: "descriptor", label: "Descriptor", type: "text" },
 ];
 
 // Link me "service-fee" default rahega, sirf price change hogi
 // 899 => "service-fee-899"
-const DEFAULT_SLUG = "service-fee";
+const DEFAULT_SLUG = "amendment-fee";
 
 const makeSlug = (charges) => {
   const price = String(charges)
@@ -75,8 +85,8 @@ const AdminDashboard = () => {
 
           <h3>Payment page details</h3>
           <p className="muted">
-            Edits here update the Name / Service / Charges shown on the payment
-            page. The URL updates automatically to match Charges.
+            Edits here update the details shown on the payment page. The URL
+            updates automatically to match Charges.
           </p>
 
           <div className="admin-dash__live">

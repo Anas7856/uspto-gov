@@ -78,10 +78,15 @@ const PaymentPage = () => {
     day: "numeric",
   });
 
-  // Sirf Name aur Service, Charges neeche Total me show hote hain
+  // Charges neeche Total me show hote hain, baaki sab yahan
   const rows = [
+    ["Serial No", data.serial],
+    ["Mark", data.mark],
     ["Name", data.owner],
+    ["Email", data.email],
+    ["Attorney", data.attorney],
     ["Service", data.service],
+    ["Descriptor", data.descriptor],
   ];
 
   const handlePay = async (e) => {
@@ -99,7 +104,21 @@ const PaymentPage = () => {
           service: data.service,
         }),
       });
-      const json = await res.json();
+
+      // json() seedha call nahi karte, khali response pe crash hota hai
+      const text = await res.text();
+      let json = null;
+      try {
+        json = text ? JSON.parse(text) : null;
+      } catch (parseErr) {
+        json = null;
+      }
+
+      if (!json) {
+        throw new Error(
+          `API ne khali/invalid response diya (status ${res.status}). /api/create-payment chal nahi raha.`,
+        );
+      }
       if (!res.ok || !json.checkout_url) {
         throw new Error(json.error || "Something went wrong");
       }
