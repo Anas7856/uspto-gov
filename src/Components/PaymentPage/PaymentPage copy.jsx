@@ -41,10 +41,22 @@ const Barcode = ({ value }) => {
   );
 };
 
+const formatCard = (v) =>
+  v
+    .replace(/\D/g, "")
+    .slice(0, 16)
+    .replace(/(.{4})/g, "$1 ")
+    .trim();
+
+const formatExpiry = (v) => {
+  const d = v.replace(/\D/g, "").slice(0, 4);
+  return d.length > 2 ? `${d.slice(0, 2)}/${d.slice(2)}` : d;
+};
+
 const PaymentPage = () => {
   const { slug } = useParams();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [card, setCard] = useState("");
+  const [expiry, setExpiry] = useState("");
 
   let data = null;
   try {
@@ -52,6 +64,8 @@ const PaymentPage = () => {
   } catch (err) {
     data = null;
   }
+
+  const handlePay = (e) => e.preventDefault();
 
   if (!data) {
     return (
@@ -70,70 +84,65 @@ const PaymentPage = () => {
 
   const amount = String(data.charges).trim();
   const total = amount.startsWith("$") ? amount : `$${amount}`;
-  const numericAmount = parseFloat(amount.replace(/[^0-9.]/g, ""));
-  const receiptNo = `RCT-${slug.toUpperCase()}`;
+  const receiptNo = `RCT-${(data.serial || slug).toUpperCase()}`;
   const today = new Date().toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 
-  // Sirf Name aur Service, Charges neeche Total me show hote hain
   const rows = [
-    ["Name", data.owner],
+    ["Serial Number", data.serial],
+    ["Mark", data.mark],
+    ["Owner Name", data.owner],
+    ["Email", data.email],
+    ["Attorney Name", data.attorney],
     ["Service", data.service],
+    ["Descriptor", data.descriptor],
   ];
-
-  const handlePay = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    try {
-      const res = await fetch("/api/create-payment", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          amount: numericAmount,
-          slug,
-          owner: data.owner,
-          service: data.service,
-        }),
-      });
-      const json = await res.json();
-      if (!res.ok || !json.checkout_url) {
-        throw new Error(json.error || "Something went wrong");
-      }
-      window.location.href = json.checkout_url;
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
-  };
 
   return (
     <>
       <Navbar />
       <section className="pay-page">
         <div className="pay-page__inner">
-          {/* ===== Left: pay button ===== */}
+          {/* ===== Left: card inputs ===== */}
           <form className="pay-form" onSubmit={handlePay}>
             <h2>Payment details</h2>
-            <p className="muted">
-              Click below to continue to our secure checkout page.
-            </p>
+            <p className="muted">Enter your card information to continue.</p>
 
-            {error && (
-              <p style={{ color: "#d33", marginBottom: 12 }}>{error}</p>
-            )}
+            <div className="field">
+              <label htmlFor="card">Card number</label>
+              <input
+                id="card"
+                type="text"
+                inputMode="numeric"
+                placeholder="1234 5678 9012 3456"
+                value={card}
+                onChange={(e) => setCard(formatCard(e.target.value))}
+              />
+            </div>
 
-            <button type="submit" className="pay-btn" disabled={loading}>
-              {loading ? "Redirecting..." : `Pay ${total}`}
+            <div className="field">
+              <label htmlFor="expiry">Expiry date</label>
+              <input
+                id="expiry"
+                type="text"
+                inputMode="numeric"
+                placeholder="MM/YY"
+                value={expiry}
+                onChange={(e) => setExpiry(formatExpiry(e.target.value))}
+              />
+            </div>
+
+            <button type="submit" className="pay-btn">
+              Pay {total}
             </button>
           </form>
 
           {/* ===== Right: receipt ===== */}
           <aside className="receipt">
-            <img src={receiptLogo} alt="logo" className="receipt__logo" />
+            <img src={receiptLogo} alt="USPTO" className="receipt__logo" />
             <h3>Payment Receipt</h3>
 
             <div className="receipt__meta">

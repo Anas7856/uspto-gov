@@ -5,20 +5,30 @@ import Footer from "../Footer/Footer";
 import "./AdminDashboard.scss";
 
 const emptyForm = {
+  serial: "",
+  mark: "",
   owner: "",
+  email: "",
+  attorney: "",
   service: "",
   charges: "",
+  descriptor: "",
 };
 
 const fields = [
-  { name: "owner", label: "Name", type: "text" },
+  { name: "serial", label: "Serial Number", type: "text" },
+  { name: "mark", label: "Mark", type: "text" },
+  { name: "owner", label: "Owner Name", type: "text" },
+  { name: "email", label: "Email", type: "email" },
+  { name: "attorney", label: "Attorney Name", type: "text" },
   { name: "service", label: "Service", type: "text" },
   { name: "charges", label: "Charges", type: "text" },
+  { name: "descriptor", label: "Descriptor", type: "text" },
 ];
 
-// Link me "service-fee" default rahega, sirf price change hogi
-// 899 => "service-fee-899"
-const DEFAULT_SLUG = "service-fee";
+// Link me "amendment-fee" default rahega, sirf price change hogi
+// 899 => "amendment-fee-899"
+const DEFAULT_SLUG = "amendment-fee";
 
 const makeSlug = (charges) => {
   const price = String(charges)
@@ -29,13 +39,16 @@ const makeSlug = (charges) => {
   return price ? `${DEFAULT_SLUG}-${price}` : DEFAULT_SLUG;
 };
 
-const makeLink = (charges) => `${window.location.origin}/${makeSlug(charges)}`;
+const makeLink = (charges) =>
+  // window.location.origin = tumhara domain (localhost ya live domain)
+  `${window.location.origin}/${makeSlug(charges)}`;
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const adminEmail = sessionStorage.getItem("adminEmail");
 
   const [form, setForm] = useState(emptyForm);
+  // Shuru se hi default link show hoga, save par price ke saath update
   const [liveLink, setLiveLink] = useState(() => makeLink(""));
 
   if (!adminEmail) return <Navigate to="/login" replace />;
@@ -45,6 +58,7 @@ const AdminDashboard = () => {
 
   const handleSave = (e) => {
     e.preventDefault();
+    // Payment page ye data slug ke naam se padhega (new tab me bhi chalega)
     localStorage.setItem(
       `payment:${makeSlug(form.charges)}`,
       JSON.stringify(form),
@@ -75,8 +89,9 @@ const AdminDashboard = () => {
 
           <h3>Payment page details</h3>
           <p className="muted">
-            Edits here update the Name / Service / Charges shown on the payment
-            page. The URL updates automatically to match Charges.
+            Edits here update the Service / Charges / Descriptor shown on the
+            payment mockup page. The URL updates automatically to match Service
+            + Charges.
           </p>
 
           <div className="admin-dash__live">
