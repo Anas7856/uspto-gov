@@ -505,7 +505,7 @@ const Navbar = () => {
       {/* Main header */}
       <div className="main-header">
         <div className="main-header__inner">
-          <a href="https://www.uspto.gov/" className="logo">
+          <a href="https://www.uspto.gov/" target="_blank" className="logo">
             <img
               src={logoDesktop}
               alt="USPTO"
