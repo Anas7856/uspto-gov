@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { FaSearch, FaChevronDown, FaLink, FaBars } from "react-icons/fa";
 import logoDesktop from "../../assets/desktop-logo.png";
 import logoMobile from "../../assets/Mobile-logo.png";
@@ -506,7 +505,7 @@ const Navbar = () => {
       {/* Main header */}
       <div className="main-header">
         <div className="main-header__inner">
-          <Link to="/" className="logo">
+          <a href="https://www.uspto.gov/" className="logo">
             <img
               src={logoDesktop}
               alt="USPTO"
@@ -517,7 +516,7 @@ const Navbar = () => {
               alt="USPTO"
               className="logo__img logo__img--mobile"
             />
-          </Link>
+          </a>
 
           {/* ===== Desktop right side ===== */}
           <div className="header-right desktop-only">
